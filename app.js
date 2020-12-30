@@ -2,6 +2,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const fs = require('fs');
 const app = express();
+const port = process.env.PORT || 80;
 const routes = require('./routes/read')
 const deletes = require('./routes/delete')
 
@@ -92,4 +93,6 @@ const GenerateRandomID = (length) => {
 }
 
 //Listening to the App Server
-app.listen(3000);
+app.listen(port, function() {
+    console.log("Server has started at port " + port);
+});
